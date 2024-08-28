@@ -1,0 +1,17 @@
+.results {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap if there's not enough space */
+    gap: 10px; /* Adds spacing between items */
+  }
+  
+  .result-item {
+    flex: 1 1 200px; /* Flex-grow and flex-shrink with a base width of 200px */
+    box-sizing: border-box;
+  }
+  
+  .result-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
