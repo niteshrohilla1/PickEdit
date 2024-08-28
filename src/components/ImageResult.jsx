@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 
 const ImageResult = ({ image, onClick }) => (
   <div className="result-item">
-    <img src={image.urls.small} alt={image.alt_description} onClick={onClick} />
+    <img
+      src={image.urls.small}
+      alt={image.alt_description || 'Image'}
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
+    />
     <button onClick={onClick}>Add Caption</button>
   </div>
 );

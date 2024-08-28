@@ -1,11 +1,11 @@
 .results {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap if there's not enough space */
-    gap: 10px; /* Adds spacing between items */
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   .result-item {
-    flex: 1 1 200px; /* Flex-grow and flex-shrink with a base width of 200px */
+    flex: 1 1 200px;
     box-sizing: border-box;
   }
   

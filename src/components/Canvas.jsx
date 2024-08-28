@@ -1,18 +1,17 @@
-
-// eslint-disable-next-line no-unused-vars
-import React, { useRef, useEffect } from 'react';
+import  { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import './Styles.css';
 
 // eslint-disable-next-line no-unused-vars
 const Canvas = ({ imageUrl, onDownload }) => {
   const canvasRef = useRef(null);
+  const [text, setText] = useState('');
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const img = new Image();
-    img.crossOrigin = 'anonymous'; 
+    img.crossOrigin = 'anonymous';
     img.src = imageUrl;
 
     img.onload = () => {
@@ -40,8 +39,6 @@ const Canvas = ({ imageUrl, onDownload }) => {
     };
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
@@ -52,7 +49,7 @@ const Canvas = ({ imageUrl, onDownload }) => {
     const ctx = canvas.getContext('2d');
     ctx.font = '30px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText('Sample Text', 50, 50);
+    ctx.fillText(text, 50, 50); // Use the text from input
   };
 
   const addShape = (type) => {
@@ -124,14 +121,15 @@ const Canvas = ({ imageUrl, onDownload }) => {
 
   return (
     <div className="canvas-container">
-      <canvas
-        ref={canvasRef}
-        id="imageCanvas"
-        width={800}
-        height={600}
-      ></canvas>
+      <canvas ref={canvasRef} id="imageCanvas" width={800} height={600}></canvas>
       <div className="button-group">
-        <button onClick={() => addText()}>Add Text</button>
+        <input 
+          type="text" 
+          placeholder="Enter text here" 
+          value={text} 
+          onChange={(e) => setText(e.target.value)} 
+        />
+        <button onClick={addText}>Add Text</button>
         <button onClick={() => addShape('circle')}>Add Circle</button>
         <button onClick={() => addShape('rectangle')}>Add Rectangle</button>
         <button onClick={() => addShape('triangle')}>Add Triangle</button>

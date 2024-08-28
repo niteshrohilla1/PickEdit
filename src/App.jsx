@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ImageSearch from './components/ImageSearch';
 import Canvas from './components/Canvas';
-import './styles.css'; 
+import './Styles.css'; 
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);

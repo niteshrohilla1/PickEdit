@@ -14,12 +14,12 @@ const ImageSearch = ({ onImageSelect }) => {
       alert('Please enter a valid search term.');
       return;
     }
-    const apiKey = 'VMi8A1SpbvUmbtGqm5_84Di8KsznGsq9G1J5dOLV6U0'; // Make sure to replace this with your actual Unsplash API key
+    const apiKey = 'VMi8A1SpbvUmbtGqm5_84Di8KsznGsq9G1J5dOLV6U0'; 
     try {
       const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: { query: searchTerm, client_id: apiKey },
       });
-      setImages(response.data.results.slice(0, 4)); // Show only 4 images
+      setImages(response.data.results.slice(0, 4));
     } catch (error) {
       console.error('Error fetching images:', error);
     }
